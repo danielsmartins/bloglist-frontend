@@ -1,0 +1,21 @@
+/* Estilos básicos para todas as notificações */
+.notification {
+  background: lightgrey;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Cor do texto para notificações de sucesso */
+.notification.success {
+  color: green;
+  border-color: green;
+}
+
+/* Cor do texto para notificações de erro */
+.notification.error {
+  color: red;
+  border-color: red;
+}
