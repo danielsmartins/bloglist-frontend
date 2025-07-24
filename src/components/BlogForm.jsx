@@ -1,58 +1,32 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
 const BlogForm = ({ createBlog }) => {
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [url, setUrl] = useState('')
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    createBlog({
-      title,
-      author,
-      url
-    })
-
-    setTitle('')
-    setAuthor('')
-    setUrl('')
+    const newBlog = {
+      title: event.target.title.value,
+      author: event.target.author.value,
+      url: event.target.url.value,
+    }
+    createBlog(newBlog)
   }
 
   return (
-    <div>
-      <h2>create new</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          title:
-          <input
-            type="text"
-            value={title}
-            name="Title"
-            onChange={({ target }) => setTitle(target.value)}
-          />
-        </div>
-        <div>
-          author:
-          <input
-            type="text"
-            value={author}
-            name="Author"
-            onChange={({ target }) => setAuthor(target.value)}
-          />
-        </div>
-        <div>
-          url:
-          <input
-            type="text"
-            value={url}
-            name="Url"
-            onChange={({ target }) => setUrl(target.value)}
-          />
-        </div>
-        <button type="submit">create</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        Title:
+        <input name="title" placeholder="title" />
+      </div>
+      <div>
+        Author:
+        <input name="author" placeholder="author" />
+      </div>
+      <div>
+        URL:
+        <input name="url" placeholder="url" />
+      </div>
+      <button type="submit">create</button>
+    </form>
   )
 }
 
